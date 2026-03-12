@@ -1,12 +1,10 @@
 # Local Deep Research
 
-**A Claude Code skill for reasoning over large local document collections.**
+Local Deep Research is a Claude Code skill for cross-document reasoning over local document collections.
 
-You have 50+ papers, notes, or docs as markdown files. You want to ask questions across them — not one at a time, but conceptually: *"What do my sources say about X?"*
+It is designed for workflows where you already have a bounded collection of papers, notes, or technical documents and want to ask conceptual questions across them, such as: “What do these sources say about XX?” The skill uses hybrid retrieval — semantic embeddings plus lexical search — to shortlist relevant documents, then loads the actual source text and has Claude read the documents directly before answering.
 
-This skill builds a hybrid retrieval index (semantic embeddings + lexical keyword matching), finds the most relevant documents, then has Claude read the actual full text and synthesize a grounded answer with precise citations.
-
-**Embeddings for routing, not evidence.** Unlike chunk-based RAG, this system uses embeddings only to find *which* documents are relevant. The actual answer comes from Claude reading the complete source text — no hallucinated summaries, no lost context, no chunk boundary artifacts.
+Embeddings are used for document routing rather than as the final evidence layer. This design keeps retrieval lightweight while grounding answers in full-source reading, reducing context fragmentation and other common chunk-RAG failure modes.
 
 ---
 
