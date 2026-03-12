@@ -244,7 +244,7 @@ A single JSON file — transparent, debuggable, no database dependency. Contains
 Chunk-based RAG loses context at chunk boundaries, can hallucinate by combining chunks from different contexts, and provides no way to verify the source. This system uses embeddings only for *routing* — finding which documents to read. Claude then reads the complete source text, preserving full context.
 
 **Why two embedding backends?**
-Gemini `embedding-2-preview` is free and excellent. OpenAI is the fallback for users who already have an OpenAI key or when Gemini is unavailable. The system warns explicitly on fallback — it never silently switches.
+Gemini `embedding-2-preview` is excellent but has rate limits. OpenAI is the fallback for users who already have an OpenAI key or when Gemini is unavailable. The system warns explicitly on fallback — it never silently switches.
 
 **How do I add new documents?**
 1. Create a markdown note in your `notes_dir/` with YAML frontmatter
