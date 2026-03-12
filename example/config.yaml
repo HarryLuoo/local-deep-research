@@ -1,0 +1,15 @@
+# Example configuration for the bundled test knowledge base
+# 3 quantum computing papers: GKP codes, bosonic code benchmarking, QEM review
+
+notes_dir: "notes/"
+sources_dir: "sources/"
+index_path: "index/retrieval_index.json"
+id_field: "citekey"
+card_metadata_fields: ["title", "authors", "year", "topics"]
+card_sections: ["Summary", "Key Findings", "Relevance"]
+skip_statuses: ["unread"]
+embedding_backend: "gemini"
+embedding_dims: 768
+weight_paper_semantic: 0.4
+weight_section_semantic: 0.3
+weight_lexical: 0.3

@@ -1,0 +1,37 @@
+# local-deep-research configuration
+# Copy this file to your project root as lit-retrieval.yaml and edit paths.
+
+# Directory containing your markdown notes (with YAML frontmatter)
+notes_dir: "notes/"
+
+# Directory containing full-text source documents (optional)
+# Each source is a subdirectory named by document ID, containing a .md file
+# e.g., sources/shannon1948_theory/shannon1948_theory.md
+sources_dir: "sources/"
+
+# Where to store the retrieval index
+index_path: "index/retrieval_index.json"
+
+# Frontmatter field used as the unique document identifier
+id_field: "citekey"
+
+# Frontmatter fields to include in the card text for embedding
+card_metadata_fields: ["title", "authors", "year", "topics"]
+
+# Markdown ## sections to extract from notes for embedding
+# These are the headings in your notes that contain summary content
+card_sections: ["Summary", "Key Findings"]
+
+# Status values to SKIP when building the index
+# Notes with these statuses are excluded (no meaningful content to embed)
+skip_statuses: ["unread"]
+
+# Embedding backend: "gemini" (primary) or "openai" (fallback)
+# Requires GOOGLE_API_KEY or OPENAI_API_KEY in environment / .env file
+embedding_backend: "gemini"
+embedding_dims: 768
+
+# Retrieval score weights (should sum to 1.0)
+weight_paper_semantic: 0.4
+weight_section_semantic: 0.3
+weight_lexical: 0.3
